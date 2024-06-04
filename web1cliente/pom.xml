@@ -8,7 +8,7 @@
 		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.arquitecturajava.web1cliente</groupId>
+	<groupId>com.arquitecturajava</groupId>
 	<artifactId>web1cliente</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>web1cliente</name>
