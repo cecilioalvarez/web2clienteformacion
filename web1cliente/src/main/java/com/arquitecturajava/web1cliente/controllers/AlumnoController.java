@@ -22,14 +22,19 @@ public class AlumnoController {
 	@GetMapping("/listaalumnos")
 	public String listaAlumnos(Model modelo) {
 		
-	
-		
+			
 		Alumno[] listaArray=plantilla.getForEntity(servidorExamenes+"/webapi/alumnos", Alumno[].class).getBody();
 
-	
 		modelo.addAttribute("lista",Arrays.asList(listaArray) );
 
 		return "listaalumnos.xhtml";
+
+	}
+	
+	@GetMapping("/formularioalumno")
+	public String formularioAlumno() {
+
+		return "formularioalumno.xhtml";
 
 	}
 
