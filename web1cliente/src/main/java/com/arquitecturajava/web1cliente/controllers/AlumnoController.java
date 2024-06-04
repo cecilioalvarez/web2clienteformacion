@@ -1,8 +1,13 @@
 package com.arquitecturajava.web1cliente.controllers;
 
+import java.util.Arrays;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.client.RestTemplate;
+
+import com.arquitecturajava.web1cliente.models.Alumno;
 
 @Controller
 public class AlumnoController {
@@ -10,10 +15,12 @@ public class AlumnoController {
 	@GetMapping("/listaalumnos")
 	public String listaAlumnos(Model modelo) {
 		
-		//List<Alumno> lista = alumnoExamenesService.buscarTodosAlumnos();
+		RestTemplate plantilla= new RestTemplate();
+		
+		Alumno[] listaArray=plantilla.getForEntity("http://localhost:8080/alumnos", Alumno[].class).getBody();
 
-		// asigna a la plantilla una nombre de lista junto con los datos
-		//modelo.addAttribute("lista", lista);
+	
+		modelo.addAttribute("lista",Arrays.asList(listaArray) );
 
 		return "listaalumnos.xhtml";
 
