@@ -17,7 +17,7 @@ public class AlumnoController {
 		
 		RestTemplate plantilla= new RestTemplate();
 		
-		Alumno[] listaArray=plantilla.getForEntity("http://localhost:8080/alumnos", Alumno[].class).getBody();
+		Alumno[] listaArray=plantilla.getForEntity("http://localhost:8080/webapi/alumnos", Alumno[].class).getBody();
 
 	
 		modelo.addAttribute("lista",Arrays.asList(listaArray) );
