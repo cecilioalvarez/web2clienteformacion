@@ -31,6 +31,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			
+			<groupId>es.curso.web1</groupId>
+  <artifactId>dtos</artifactId>
+  <version>1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

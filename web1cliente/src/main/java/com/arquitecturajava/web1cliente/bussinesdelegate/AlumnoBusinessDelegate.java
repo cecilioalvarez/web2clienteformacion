@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.arquitecturajava.web1cliente.models.Alumno;
+import es.curso.web1.dto.AlumnoDto;
+import es.curso.web1.models.Alumno;
 
 @Service
 public class AlumnoBusinessDelegate {
@@ -17,16 +18,16 @@ public class AlumnoBusinessDelegate {
 	RestTemplate plantilla;
 	@Value("${servidor.examenes}")
 	private String servidorExamenes;
-
-	public void insertar(Alumno alumno) {
+	
+	public void insertar(AlumnoDto alumno) {
 
 		plantilla.postForEntity(servidorExamenes + "/webapi/alumnos", alumno, Alumno.class);
 
 	}
 
-	public List<Alumno> buscarTodos() {
-
-		Alumno[] listaArray = plantilla.getForEntity(servidorExamenes + "/webapi/alumnos", Alumno[].class).getBody();
+	public List<AlumnoDto> buscarTodos() {
+		
+		AlumnoDto[] listaArray = plantilla.getForEntity(servidorExamenes + "/webapi/alumnos", AlumnoDto[].class).getBody();
 		return Arrays.asList(listaArray);
 
 	}
